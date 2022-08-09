@@ -98,7 +98,7 @@ public class RedpenJenkinsCore {
         for (String s : logDir) {
             String trimPath = s.trim();
             File file = new File(workspaceBasePath, trimPath);
-            if (!StringUtils.isBlank(trimPath) && file.getCanonicalPath().startsWith(workspaceBasePath)) {
+            if (!StringUtils.isBlank(trimPath) && file.getCanonicalFile().toPath().startsWith(workspaceBasePath)) {
                 String logPath = file.getAbsolutePath();
                 AttachmentModel reportFiles = attachLogFiles(buildTriggerTime, workspaceBasePath, logPath, issueKey, jwtToken, "", "Other Files", true);
                 uploadedFileNames.addAll(reportFiles.getAttachments());

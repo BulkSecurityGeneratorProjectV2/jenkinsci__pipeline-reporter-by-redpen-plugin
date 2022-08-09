@@ -201,7 +201,7 @@ public class RedpenJobProperty extends JobProperty<Job<?, ?>> {
             }
             try {
                 File file = new File(basePath, value);
-                if (file.getCanonicalPath().startsWith(basePath)) {
+                if (file.getCanonicalFile().toPath().startsWith(basePath)) {
                     return FormValidation.ok();
                 }
             } catch (IOException e) {
